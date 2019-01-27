@@ -1,0 +1,14 @@
+{
+  "name": "vr-shooter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:urish/vr-shooter.git",
+  "author": "Uri Shaked <uri@urishaked.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "live-server web"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
