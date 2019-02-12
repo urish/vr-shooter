@@ -11,14 +11,21 @@
   </head>
 <body>
   <a-scene id="scene">
+    <a-assets>
+      <video id="webcam" playsinline></video>
+    </a-assets>
+
+    <a-box position="-1 0.5 -3" rotation="0 45 0" material="src: #webcam"></a-box>
+    
     <a-entity environment="preset: forest"></a-entity>
-    <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
 
-    <a-entity laser-controls></a-entity>
-
-    <a-entity id="win-controls-right" windows-motion-controls="hand: right"></a-entity>
-    <a-entity id="win-controls-left" windows-motion-controls="hand: left"></a-entity>
+    <a-entity id="win-controls-left" laser-controls="hand: left" raycaster="objects: .heart" line="color: red; opacity: 0.75"></a-entity>
   </a-scene>
+
+  <a-entity id="heart-model" class="heart" gltf-model="models/Heart.gltf" scale="0.01 0.01 0.01" position="0 1 -5"
+    animation="property: rotation; to: 0 360 0; loop: true; easing: linear; dur: 2000">
+  </a-entity>
+
   <script src="game.js"></script>
 </body>
 </html>
