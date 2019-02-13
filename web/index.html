@@ -14,7 +14,6 @@
     <a-camera look-controls>
       <a-cursor></a-cursor>
       <a-text id="score" position="-0.3 0.5 -0.90" color="white" width="4" anchor="left"></a-text>
-      <a-plane rotation="0 0 0" position="0.5 0.3 -0.9" scale="0.4 0.4 1" src="dali_llama.jpg"></a-plane>
     </a-camera>
 
     <a-entity environment="preset: forest"></a-entity>
@@ -24,7 +23,7 @@
 
   <a-entity id="heart-model" class="heart" gltf-model="models/Heart.gltf" scale="0.01 0.01 0.01" position="0 1 -5"
     animation="property: rotation; to: 0 360 0; loop: true; easing: linear; dur: 2000"
-    animation__shrink="property: scale; to: 0 0 0; dur: 300; loop: false; startEvents: shoot; fill: backward" 
+    animation__shrink="property: scale; to: 0 0 0; dur: 300; loop: false; startEvents: shoot" 
     animation__collect="property: position; to: 0 0 0; dur: 300; loop: false; startEvents: shoot">
   </a-entity>
 
