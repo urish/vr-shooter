@@ -24,7 +24,8 @@
 
   <a-entity id="heart-model" class="heart" gltf-model="models/Heart.gltf" scale="0.01 0.01 0.01" position="0 1 -5"
     animation="property: rotation; to: 0 360 0; loop: true; easing: linear; dur: 2000"
-    animation__shrink="property: scale; to: 0 0 0; dur: 300; loop: false; startEvents: shoot">
+    animation__shrink="property: scale; to: 0 0 0; dur: 300; loop: false; startEvents: shoot"
+    animation__collect="property: position; to: 0 0 0; dur: 300; loop: false; startEvents: shoot">
   </a-entity>
 
   <script src="game.js"></script>
