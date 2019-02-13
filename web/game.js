@@ -1,7 +1,6 @@
 const scene = document.querySelector('#scene');
 const heartTemplate = document.querySelector('#heart-model');
 const scoreEl = document.querySelector('#score');
-const videoEl = document.querySelector('video');
 
 const winControlsLeft = document.querySelector('#win-controls-left');
 
@@ -36,11 +35,3 @@ function createHeart() {
 createHeart();
 displayScore();
 setInterval(createHeart, 1000);
-
-// Camera support
-navigator.mediaDevices
-  .getUserMedia({ audio: false, video: true })
-  .then(stream => {
-    videoEl.srcObject = stream;
-    videoEl.play();
-  });
