@@ -13,25 +13,39 @@ function displayScore() {
   scoreEl.setAttribute('value', `Score: ${score}`);
 }
 
+function randomPosition() {
+  return {
+    x: (Math.random() - 0.5) * 20,
+    y: 1.5,
+    z: (Math.random() - 0.5) * 20
+  };
+}
+
 let hearts = 0;
 function createHeart() {
   if (hearts++ > 15) return;
   const clone = heartTemplate.cloneNode();
-  clone.setAttribute('position', {
-    x: (Math.random() - 0.5) * 20,
-    y: 1.5,
-    z: (Math.random() - 0.5) * 20
+  clone.setAttribute('position', randomPosition());
+  clone.addEventListener('click', () => {
+    clone.dispatchEvent(new Event('shoot'));
+    score++;
+    displayScore();
   });
   clone.addEventListener('raycaster-intersected', e => {
     if (triggered) {
-      clone.setAttribute('scale', '0 0 0');
+      clone.dispatchEvent(new Event('shoot'));
       score++;
       displayScore();
     }
   });
+  clone.addEventListener('animationcomplete', () => {
+    clone.setAttribute('position', randomPosition());
+    clone.setAttribute('scale', '0.01 0.01 0.01');
+  });
   scene.appendChild(clone);
 }
 
-createHeart();
 displayScore();
-setInterval(createHeart, 1000);
+for (i = 0; i < 15; i++) {
+  createHeart();
+}
