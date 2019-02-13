@@ -1,5 +1,6 @@
 const scene = document.querySelector('#scene');
 const heartTemplate = document.querySelector('#heart-model');
+const scoreEl = document.querySelector('#score');
 const videoEl = document.querySelector('video');
 
 const winControlsLeft = document.querySelector('#win-controls-left');
@@ -7,6 +8,11 @@ const winControlsLeft = document.querySelector('#win-controls-left');
 let triggered = false;
 winControlsLeft.addEventListener('triggerdown', e => (triggered = true));
 winControlsLeft.addEventListener('triggerup', e => (triggered = false));
+
+let score = 0;
+function displayScore() {
+  scoreEl.setAttribute('value', `Score: ${score}`);
+}
 
 let hearts = 0;
 function createHeart() {
@@ -20,12 +26,15 @@ function createHeart() {
   clone.addEventListener('raycaster-intersected', e => {
     if (triggered) {
       clone.setAttribute('scale', '0 0 0');
+      score++;
+      displayScore();
     }
   });
   scene.appendChild(clone);
 }
 
 createHeart();
+displayScore();
 setInterval(createHeart, 1000);
 
 // Camera support
