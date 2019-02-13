@@ -40,7 +40,6 @@ function createHeart() {
   });
   clone.addEventListener('animationcomplete', () => {
     clone.setAttribute('position', randomPosition());
-    clone.setAttribute('scale', '0.01 0.01 0.01');
   });
   scene.appendChild(clone);
 }
